@@ -9,7 +9,7 @@ namespace EmployeWage
             // UC1 present or absent
             // UC2 Calculate Daily Wage
             // UC3 Part time Employee
-            
+            // UC4 
             CheckEmployeePresentAbsent();
         }
         public static void CheckEmployeePresentAbsent()
@@ -21,20 +21,20 @@ namespace EmployeWage
             int dailyWage = 0;
             Random random = new Random();
             int num = random.Next(0, 3);
-            if (num == 0)
+            switch (num)
             {
-                Console.WriteLine("Employee is Present");
-                dailyWage = totalWorkingHour * wagePerHour;
-            }
-            else if (num == 2)
-            {
-                Console.WriteLine("Employee is doing Parttime");
-                dailyWage = partTimeHour * wagePerHour;
-                Console.WriteLine("Total Daily wage is: " + dailyWage);
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
+                case 0:
+                    Console.WriteLine("Employee is Present");
+                    dailyWage = totalWorkingHour * wagePerHour;
+                    break;
+                case 1:
+                    Console.WriteLine("Employee is doing Parttime");
+                    dailyWage = partTimeHour * wagePerHour;
+                    Console.WriteLine("Total Daily wage is: " + dailyWage);
+                    break;
+                case 2:
+                    Console.WriteLine("Employee is Absent");
+                    break;
             }
             Console.WriteLine("Total Daily wage is: " + dailyWage);
 
