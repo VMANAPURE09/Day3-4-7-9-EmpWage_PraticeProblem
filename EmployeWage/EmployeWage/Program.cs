@@ -15,40 +15,42 @@ namespace EmployeWage
         public static void CheckEmployeePresentAbsent()
         {
             Console.WriteLine("Welcome to Employee Pay Roll");
-            const int Emp_Full_Time = 1;
-            const int Emp_Part_Time = 2;
-        public int Working_Days_Per_Month = 20;
-        public int Total_Salary_Month = 0;
-        public int Day;
-        public int empHrs = 0;
-        public int EmployeeWage;
-        public void Attendance()
-        {
-            // Stroing RandomValue
-            for (Day = 1; Day <= Working_Days_Per_Month; Day++)
+            int Emp_Rate_Per_Hour = 20;
+            int Emphrs = 0;
+            int Empwage = 0;
+            int total_Emp_hrs = 0;
+            int total_working_days = 0;
+
+            int Total_working_hrs = 100;
+            int Total_working_days = 20;
+            int Totalwage = 0;
+            while (total_Emp_hrs < Total_working_hrs && total_working_days < Total_working_days)
             {
-                Random random = new Random(); //Random Value
-                int empCheck = random.Next(0, 3); //Check Random in b/w 0 to 3
-                switch (empCheck) // switch Case
+                total_working_days++;
+                Random random = new Random();
+                int employeecheck = random.Next(2);
+
+                if (employeecheck == 1)
                 {
-                    case Emp_Full_Time: // For Full Time =1
-                        empHrs = 8; // *8
-                        break;
-
-                    case Emp_Part_Time: //for Part Time = 2
-                        empHrs = 4; //*4
-                        break;
-
-                    default:
-                        empHrs = 0; //Default 0
-                        break;
+                    Console.WriteLine("Employee is Present");
+                    Emphrs = 8;
                 }
-            }
-            //calculating 
-            EmployeeWage = empHrs * Working_Days_Per_Month;
-            Total_Salary_Month += EmployeeWage;  // Total_Salary_Month = Total_Salary_Month + EmployeeWage
-            Console.WriteLine("Employee Wage : " + EmployeeWage); // op
+                else
+                {
+                    Console.WriteLine("Emplyee is Absent");
+                    Emphrs = 0;
+                }
 
+
+
+                total_Emp_hrs = total_Emp_hrs + Emphrs;
+
+                Empwage = total_Emp_hrs * Emp_Rate_Per_Hour;
+
+
+
+                Console.WriteLine("Total Employee Wage :" + Empwage);
+            }
         }
     }
 }
