@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace EmployeWage
 {
-    internal class EmployeeWage
+    internal class EmployeeWageCalculation
     {
-        public static void CheckEmployeePresentAbsent()
-        {
-            const int Emp_Full_Time = 1;
-            const int Emp_Part_Time = 2;
+        const int Emp_Full_Time = 1;
+        const int Emp_Part_Time = 2;
         // public int Count_Work_Day = 20;
         // public int Emp_Per_Rate_Hour = 20;
         //public int MAx_Hrs_Or_Day_Month= 100;
         public int Working_Days_Per_Month = 20;
         public int Working_Days = 0;
         public int empHrs = 0;
-        public int EmployeeWages = 0;
+        public int EmployeeWage = 0;
         int totalWage = 0;
         int totalHours = 0;
         public void Attendance(string CompanyName, int WagePerHour, int NumWorkingDays, int MaxHoursPerMonth) //
@@ -47,7 +45,7 @@ namespace EmployeWage
                 // EmployeeWage += empHrs; // EmployeeWage = EmployeeWage+ empHrs
                 //Console.WriteLine("Day#:" + Working_Days + "Employee Hrs:" + empHrs);
                 //checking total number of hours
-                totalHours += empHrs; //calculate total hours worked
+                totalHours += empHrs / 20; //calculate total hours worked
                 totalWage += empHrs; // calculating montly wage
                 if (totalHours >= MaxHoursPerMonth) //maximum total hours 
                     break;
@@ -62,6 +60,6 @@ namespace EmployeWage
             Console.WriteLine("Monthly wage :" + totalWage);
             Console.WriteLine();
         }
-      }
+      
     }
 }
